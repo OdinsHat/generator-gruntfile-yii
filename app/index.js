@@ -62,7 +62,28 @@ var GruntfileYiiGenerator = yeoman.generators.Base.extend({
       this.phpMd = hasPhpTool('phpMd');
       this.phpCpd = hasPhpTool('phpCpd');
       this.phpCsFixer = hasPhpTool('phpCsFixer');
-      this.jsLint = false;
+
+      done();
+    }.bind(this));
+  },
+
+  askForJsTools: function () {
+    var done = this.async();
+    var prompts = [{
+      type: 'confirm',
+      name: 'jsHint',
+      message: 'Would you like to include JSHint?',
+      default: true
+    }, {
+      type: 'confirm',
+      name: 'cssLint',
+      message: 'Would you like to include csslint?',
+      default: false
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.jsHint = props.jsHint;
+      this.cssLint = props.cssLint;
 
       done();
     }.bind(this));
