@@ -7,7 +7,14 @@ var chalk = require('chalk');
 
 var GruntfileYiiGenerator = yeoman.generators.Base.extend({
   init: function () {
-    this.pkg = require('../package.json');
+    if (this.dest.exists('package.json')) {
+      this.packageJSON = this.dest.readJSON('package.json');
+      this.appname = this.packageJSON.name || this.appname;
+      this.version = this.packageJSON.version || this.version;
+      this.hasJshint = this.packageJSON.hasOwnProperty('jshintConfig') || this.dest.exists('.jshintrc');
+    } else {
+      this.hasJshint = this.dest.exists('.jshintrc');
+    }
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
@@ -16,40 +23,62 @@ var GruntfileYiiGenerator = yeoman.generators.Base.extend({
     });
   },
 
-  askFor: function () {
+  askForPhpTools: function () {
     var done = this.async();
 
     // have Yeoman greet the user
     this.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    this.log(chalk.magenta('You\'re using the fantastic GruntfileYii generator.'));
+    this.log(chalk.magenta('This will generate a Gruntfile.js and package.json for your Yii project'));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'checkbox',
+      name: 'phpTools',
+      message: 'Which PHP analysis tools do you want included/have available?',
+      choices: [{
+        name: 'PHP Code Sniffer (phpcs)',
+        value: 'phpCs',
+        checked: true
+      }, {
+        name: 'PHP Mess Detector (phpmd)',
+        value: 'phpMd',
+        checked: false
+      }, {
+        name: 'PHP Copy/Paste Detector (phpcpd)',
+        value: 'phpCpd',
+        checked: false
+      }, {
+        name: 'PHP CS Fixer',
+        value: 'phpCsFixer',
+        checked: false
+      }]
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      function hasPhpTool(feat) {
+        return props.phpTools.indexOf(feat) !== -1;
+      }
+
+      this.phpCs = hasPhpTool('phpCs');
+      this.phpMd = hasPhpTool('phpMd');
+      this.phpCpd = hasPhpTool('phpCpd');
+      this.phpCsFixer = hasPhpTool('phpCsFixer');
+      this.jsLint = false;
 
       done();
     }.bind(this));
   },
 
-  app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
-
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
+  writing: function () {
+    this.template('_package.json', 'package.json');
+    this.template('_Gruntfile.js', 'Gruntfile.js');
   },
 
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
+  install: function () {
+    if (!this.options['skip-install']) {
+      this.installDependencies();
+    }
   }
 });
 
