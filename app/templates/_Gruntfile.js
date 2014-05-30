@@ -2,13 +2,7 @@ module.exports = function(grunt) {
     'use strict';
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        phplint: {
-            all: ['protected/controllers/*.php', 'protected/models/*.php', 'protected/components/*.php', 'protected/config/*.php'],
-            configs: ['protected/config/*.php'],
-            components: ['protected/components/*.php'],
-            controllers: ['protected/controllers/*.php'],
-            models: ['protected/models/*.php'],
-        },<% if (phpCs) { %>
+        <% if (phpCs) { %>
         phpcs: {
             components: {
                 dir: ['protected/components/*.php']
@@ -62,24 +56,36 @@ module.exports = function(grunt) {
             models: {
                 dir: 'protected/models'
             }
-        }<% } %>
+        },<% } %><% if (jsHint) { %>
+        jshint: {
+            options: {
+                reporter: require('jshint-stylish')
+            },
+            gruntfile: {
+                src: 'Gruntfile.js'
+            },
+            rootjs: {
+                src: ['js/*.js']
+            }
+        },<% } %>
+        phplint: {
+            all: ['protected/controllers/*.php', 'protected/models/*.php', 'protected/components/*.php', 'protected/config/*.php'],
+            configs: ['protected/config/*.php'],
+            components: ['protected/components/*.php'],
+            controllers: ['protected/controllers/*.php'],
+            models: ['protected/models/*.php'],
+        }
     });
 
     grunt.loadNpmTasks('grunt-php');
-    grunt.loadNpmTasks('grunt-phplint');
-    <% if (phpCs) { %>
-    grunt.loadNpmTasks('grunt-phpcs');<% } %>
-    <% if (phpMd) { %>
-    grunt.loadNpmTasks('grunt-phpmd');<% } %>
-    <% if (phpCsFixer) { %>
-    grunt.loadNpmTasks('grunt-php-cs-fixer');<% } %>
-    <% if (phpCpd) { %>
-    grunt.loadNpmTasks('grunt-phpcpd');<% } %>
+    grunt.loadNpmTasks('grunt-phplint');<% if (phpCs) { %>
+    grunt.loadNpmTasks('grunt-phpcs');<% } %><% if (phpMd) { %>
+    grunt.loadNpmTasks('grunt-phpmd');<% } %><% if (phpCsFixer) { %>
+    grunt.loadNpmTasks('grunt-php-cs-fixer');<% } %><% if (phpCpd) { %>
+    grunt.loadNpmTasks('grunt-phpcpd');<% } %><% if (jsHint) { %>
+    grunt.loadNpmTasks('grunt-contrib-jshint');<% } %>
 
-    grunt.registerTask('default', ['phplint:all']);
-    grunt.registerTask('full', ['phplint', 'phpmd:components', 'phpcs']);
-    grunt.registerTask('models', ['phplint:models', 'phpmd:models', 'phpcs:models']);
-    grunt.registerTask('controllers', ['phplint:controllers', 'phpmd:controllers', 'phpcs:controllers']);
-    grunt.registerTask('cleanup', ['phpcsfixer:controllers', 'phpcsfixer:models', 'phpcsfixer:components']);
+    grunt.registerTask('default', ['phplint:all']);<% if (phpCsFixer) { %>
+    grunt.registerTask('cleanup', ['phpcsfixer:controllers', 'phpcsfixer:models', 'phpcsfixer:components']);<% } %>
     grunt.registerTask('server', ['php']);
 };
