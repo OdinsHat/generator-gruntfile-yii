@@ -8,8 +8,7 @@ module.exports = function(grunt) {
             components: ['protected/components/*.php'],
             controllers: ['protected/controllers/*.php'],
             models: ['protected/models/*.php'],
-        },
-        <% if (phpCs) { %>
+        },<% if (phpCs) { %>
         phpcs: {
             components: {
                 dir: ['protected/components/*.php']
@@ -23,9 +22,7 @@ module.exports = function(grunt) {
             options: {
                 standard: 'Pear'
             }
-        },
-        <% } %>
-        <% if (phpCpd) { %>
+        },<% } %><% if (phpCpd) { %>
         phpcpd: {
             components: {
                 dir: 'protected'
@@ -39,9 +36,7 @@ module.exports = function(grunt) {
             options: {
                 quiet:false
             }
-        },
-        <% } %>
-        <% if (phpMd) { %>
+        },<% } %><% if (phpMd) { %>
         phpmd: {
             components: {
                 dir: 'protected/components'
@@ -56,9 +51,7 @@ module.exports = function(grunt) {
                 reportFormat: 'text',
                 rulesets: 'codesize'
             }
-        },
-        <% } %>
-        <% if (phpCsFixer) { %>
+        },<% } %><% if (phpCsFixer) { %>
         phpcsfixer: {
             components: {
                 dir: 'protected/components'
@@ -69,8 +62,7 @@ module.exports = function(grunt) {
             models: {
                 dir: 'protected/models'
             }
-        }
-        <% } %>
+        }<% } %>
     });
 
     grunt.loadNpmTasks('grunt-php');
