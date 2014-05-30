@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         phplint: {
             all: ['protected/controllers/*.php', 'protected/models/*.php', 'protected/components/*.php', 'protected/config/*.php'],
-            models: ['protected/config/*.php'],
+            configs: ['protected/config/*.php'],
             components: ['protected/components/*.php'],
             controllers: ['protected/controllers/*.php'],
             models: ['protected/models/*.php'],
