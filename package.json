@@ -1,12 +1,14 @@
 {
   "name": "generator-gruntfile-yii",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.1.0",
+  "description": "A Gruntfile.js generator for Yii projects",
   "license": "MIT",
   "main": "app/index.js",
+  "homepage": "https://github.com/OdinsHat/generator-gruntfile-yii",
+  "bugs": "https://github.com/OdinsHat/generator-gruntfile-yii/issues",
   "repository": "OdinsHat/generator-gruntfile-yii",
   "author": {
-    "name": "Doug",
+    "name": "Doug Bromley",
     "email": "doug.bromley@gmail.com",
     "url": "https://github.com/OdinsHat"
   },
@@ -20,14 +22,24 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "scaffold",
+    "yii",
+    "build",
+    "grunt",
+    "task",
+    "runner"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
+    "grunt": "~0.4.1",
     "chalk": "~0.4.0"
   },
   "devDependencies": {
     "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha --reporter nyan"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
