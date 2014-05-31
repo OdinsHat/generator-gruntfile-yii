@@ -1,52 +1,23 @@
-# generator-gruntfile-yii [![Build Status](https://secure.travis-ci.org/OdinsHat/generator-gruntfile-yii.png?branch=master)](https://travis-ci.org/OdinsHat/generator-gruntfile-yii)
+# Gruntfile for Yii Generator [![Build Status](https://secure.travis-ci.org/OdinsHat/generator-gruntfile-yii.png?branch=master)](https://travis-ci.org/OdinsHat/generator-gruntfile-yii)
 
-> [Yeoman](http://yeoman.io) generator
+> [Yeoman](http://yeoman.io) generator or creating a package.json and Gruntfile.js with relevant tools and questions for a Yii project.
 
+The generator is based on [Addy Osmani's](https://github.com/addyosmani) great [gruntfile Generator](https://github.com/yeoman/generator-gruntfile).
 
-## Getting Started
+I adapted my own Yii Gruntfile wich carries out a tasks such as PHP static analysis,
+CSS linting and JS linting specific to the layout of a Yii project.
 
-### What is Yeoman?
+**This is my first generator - please report any bugs or issues you find**
 
-Trick question. It's not a thing. It's this guy:
+## Prerequisites
 
-![](http://i.imgur.com/JHaAlBJ.png)
+* [PHP](http://www.php.net/)
+* [NodeJS](http://nodejs.org/)
+* [Yeoman (Yo)](http://yeoman.io/)
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```
-$ npm install -g yo
-```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-gruntfile-yii from npm, run:
-
-```
-$ npm install -g generator-gruntfile-yii
-```
-
-Finally, initiate the generator:
-
-```
-$ yo gruntfile-yii
-```
-
-### Getting To Know Yeoman
-
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
-
-
-## License
-
-MIT
-=======
-generator-gruntfile-yii
-=======================
-
-Creates a package.jsopn and Gruntfile for Yii projects including options for PHP static analysis anbd other tools
+Depending on your answers in the generator you may need the following:
+* [PHP Code Sniffer]()
+* [PHP Mess Detector])()
+* [PHP Copy/Paste Detector]()
+* [PHP CS Fixer]()
+* To run the ```grunt php``` server task you'd need PHP >=5.4 but its not compulsory.
