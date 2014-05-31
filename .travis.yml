@@ -4,3 +4,4 @@ node_js:
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'generator-gruntfile-yii' ]; then cd .. && eval "mv $currentfolder generator-gruntfile-yii" && cd generator-gruntfile-yii; fi
+
