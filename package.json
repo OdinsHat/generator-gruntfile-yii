@@ -1,6 +1,6 @@
 {
   "name": "generator-gruntfile-yii",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "A Gruntfile.js generator for Yii projects",
   "license": "MIT",
   "main": "app/index.js",
