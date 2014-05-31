@@ -17,7 +17,7 @@ CSS linting and JS linting specific to the layout of a Yii project.
 
 Depending on your answers in the generator you may need the following:
 * [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer/)
-* [PHP Mess Detector])(http://phpmd.org/)
+* [PHP Mess Detector](http://phpmd.org/)
 * [PHP Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd)
 * [PHP CS Fixer](https://github.com/fabpot/PHP-CS-Fixer)
 * To run the ```grunt php``` server task you'd need PHP >=5.4 but its not compulsory.
