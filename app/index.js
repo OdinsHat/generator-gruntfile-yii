@@ -17,19 +17,21 @@ var GruntfileYiiGenerator = yeoman.generators.Base.extend({
     }
 
     this.on('end', function () {
-      this.installDependencies();
+      if (!this.options['skip-install']) {
+        this.installDependencies();
+      }
     });
   },
 
   askForPhpTools: function () {
     var done = this.async();
+    if (!this.options['skip-install-message']) {
+        // have Yeoman greet the user
+        this.log(this.yeoman);
 
-    // have Yeoman greet the user
-    this.log(this.yeoman);
-
-    // replace it with a short and sweet description of your generator
-    this.log(chalk.magenta('This will generate a Gruntfile.js and package.json for your Yii project'));
-
+        // replace it with a short and sweet description of your generator
+        this.log(chalk.magenta('This will generate a Gruntfile.js and package.json for your Yii project'));
+    }
     var prompts = [{
       type: 'checkbox',
       name: 'phpTools',
@@ -92,12 +94,6 @@ var GruntfileYiiGenerator = yeoman.generators.Base.extend({
   writing: function () {
     this.template('_package.json', 'package.json');
     this.template('_Gruntfile.js', 'Gruntfile.js');
-  },
-
-  install: function () {
-    if (!this.options['skip-install']) {
-      this.installDependencies();
-    }
   }
 });
 
