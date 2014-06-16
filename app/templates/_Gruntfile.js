@@ -47,6 +47,10 @@ module.exports = function(grunt) {
             }
         },<% } %><% if (phpCsFixer) { %>
         phpcsfixer: {
+            options: {
+                verbose: true,
+                quiet:false
+            },
             components: {
                 dir: 'protected/components'
             },
