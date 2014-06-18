@@ -4,10 +4,7 @@
 
 The generator is based on [Addy Osmani's](https://github.com/addyosmani) great [gruntfile Generator](https://github.com/yeoman/generator-gruntfile) as well as using the ```yo generator``` scaffold.
 
-I adapted my own Yii Gruntfile which carries out tasks such as PHP static analysis,
-CSS linting and JS linting specific to the layout of a Yii project.
-
-**This is my first generator - please report any bugs or issues you find**
+I adapted my own Yii Gruntfile which carries out tasks such as PHP static analysis of your Yii code, CSS linting and JS linting specific to the layout of a Yii project.
 
 ## Installation
 
@@ -17,9 +14,9 @@ Be sure to run these in your web root folder.
 
 ```yo gruntfile-yii```
 
-```npm install```
+You'll be asked a series of questions to help setup your Gruntfile and package.json before it goes and creates it for you.
 
-This will install the ```Gruntfile.js``` and ```package.json``` into your web directory. The same directory that contains the "protected" and "assets" directories. Then ```npm install``` will install all the required node modules. Be sure to have the prerequisites below.
+This will install the ```Gruntfile.js``` and ```package.json``` into your web directory. The same directory that contains the "protected" and "assets" directories. Then ```npm install``` will install all the required node modules. Be sure to have the prerequisites below as it will expect them.
 
 ### Prerequisites
 
@@ -45,5 +42,8 @@ In your Yii root folder (the one containing index.php and ```protected``` folder
 * ```grunt phpmd``` run PHP Mess Detector on all compnents, controller & models
 * Many more - check the grunt file and feel free to edit to your needs.
 
+##Contributions
+**This is my first generator - please report any bugs or issues you find**
+All are very welcome and I'm very happy for you to submit bug reports, feature requesats and even better - pull requests.
 
-You'll be asked a series of questions to help setup your Gruntfile and package.json before it goes and creates it for you.
+Thank you!
