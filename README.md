@@ -42,7 +42,7 @@ In your Yii root folder (the one containing index.php and ```protected``` folder
 * ```grunt``` run all tasks
 * ```grunt phpcs``` run phpcs tool on all compnents, controller & models
 * ```grunt phpcs:models``` as above but only on models
-* ```grunt phpmd run PHP Mess Detector on all compnents, controller & models
+* ```grunt phpmd``` run PHP Mess Detector on all compnents, controller & models
 * Many more - check the grunt file and feel free to edit to your needs.
 
 
