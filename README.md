@@ -1,4 +1,6 @@
-# Gruntfile for Yii Generator [![Build Status](https://secure.travis-ci.org/OdinsHat/generator-gruntfile-yii.png?branch=master)](https://travis-ci.org/OdinsHat/generator-gruntfile-yii)
+# Gruntfile for Yii Generator
+
+[![npm version](https://badge.fury.io/js/generator-gruntfile-yii.svg)](https://badge.fury.io/js/generator-gruntfile-yii) [![Build Status](https://secure.travis-ci.org/OdinsHat/generator-gruntfile-yii.png?branch=master)](https://travis-ci.org/OdinsHat/generator-gruntfile-yii) [![Code Climate](https://codeclimate.com/github/OdinsHat/generator-gruntfile-yii/badges/gpa.svg)](https://codeclimate.com/github/OdinsHat/generator-gruntfile-yii)
 
 > [Yeoman](http://yeoman.io) generator or creating a package.json and Gruntfile.js with relevant tools and questions for a Yii project.
 
@@ -42,8 +44,15 @@ In your Yii root folder (the one containing index.php and ```protected``` folder
 * ```grunt phpmd``` run PHP Mess Detector on all compnents, controller & models
 * Many more - check the grunt file and feel free to edit to your needs.
 
-##Contributions
+## Testing
+
+```
+npm test
+```
+
+## Contributions
 **This is my first generator - please report any bugs or issues you find**
+
 All are very welcome and I'm very happy for you to submit bug reports, feature requesats and even better - pull requests.
 
 Thank you!
