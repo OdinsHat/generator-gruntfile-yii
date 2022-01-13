@@ -31,7 +31,7 @@
     "runner"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
+    "yeoman-generator": "~2.0.3",
     "grunt": "~0.4.1",
     "chalk": "~0.4.0"
   },
