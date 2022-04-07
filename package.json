@@ -16,7 +16,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter nyan"
   },
   "files": [
     "app"
@@ -37,9 +37,6 @@
   },
   "devDependencies": {
     "mocha": "*"
-  },
-  "scripts": {
-    "test": "mocha --reporter nyan"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
