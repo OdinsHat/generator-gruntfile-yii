@@ -1,0 +1,15 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:mime:20170907':
+    - yeoman-generator > request > form-data > mime:
+        patched: '2022-09-23T05:17:18.488Z'
+  'npm:minimatch:20160620':
+    - yeoman-generator > file-utils > minimatch:
+        patched: '2022-09-23T05:17:18.488Z'
+    - yeoman-generator > file-utils > glob > minimatch:
+        patched: '2022-09-23T05:17:18.488Z'
+    - yeoman-generator > file-utils > findup-sync > glob > minimatch:
+        patched: '2022-09-23T05:17:18.488Z'

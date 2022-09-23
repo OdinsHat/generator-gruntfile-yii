@@ -16,7 +16,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter nyan",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "files": [
     "app"
@@ -31,17 +33,16 @@
     "runner"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "grunt": "~0.4.1",
-    "chalk": "~0.4.0"
+    "yeoman-generator": "~2.0.3",
+    "grunt": "~1.5.3",
+    "chalk": "~0.4.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "mocha": "*"
   },
-  "scripts": {
-    "test": "mocha --reporter nyan"
-  },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  }
+  },
+  "snyk": true
 }
